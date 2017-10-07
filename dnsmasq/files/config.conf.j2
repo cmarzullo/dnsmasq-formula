@@ -1,0 +1,13 @@
+{# trying a different indent pattern here -#}
+{%   for section, section_options in config.iteritems() -%}
+{%    if section_options.comments is defined -%}
+{%      for comment in section_options.comments -%}
+# {{ comment }}
+{%      endfor %}
+{%-   endif -%}
+{%    if section_options.data is defined -%}
+{%      for line in section_options.data -%}
+{{ line }}
+{%      endfor %}
+{%-   endif %}
+{%   endfor %}

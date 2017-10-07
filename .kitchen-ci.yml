@@ -1,0 +1,28 @@
+# vim: ft=yaml
+---
+driver:
+  name: linode
+
+provisioner:
+  name: salt_solo
+  formula: dnsmasq
+  state_top:
+    base:
+      "*":
+        - dnsmasq
+
+platforms:
+  - name: debian_jessie
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        dnsmasq.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - dnsmasq
