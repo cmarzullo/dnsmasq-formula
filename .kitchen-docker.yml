@@ -1,0 +1,35 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: salt_solo
+  formula: dnsmasq
+  state_top:
+    base:
+      "*":
+        - dnsmasq
+
+platforms:
+  - name: debian-8
+    driver:
+      image: debian:8
+  - name: debian-9
+    driver:
+      image: debian:9
+  - name: centos-7
+    driver:
+      image: centos:7
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        dnsmasq.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - dnsmasq
