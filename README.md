@@ -1,4 +1,6 @@
 # dnsmasq-formula
+[![Build Status](https://travis-ci.org/ssplatt/dnsmasq-formula.svg?branch=master)](https://travis-ci.org/ssplatt/dnsmasq-formula)
+
 Install and configure dnsmasq
 
 ## Development
